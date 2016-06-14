@@ -1,0 +1,14 @@
+{
+  "name": "visit-planner",
+  "version": "0.0.0",
+  "description": "a kata for laterooms",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/mocha"
+  },
+  "author": "Paul D'Ambra",
+  "license": "ISC"
+}
