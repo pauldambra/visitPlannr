@@ -2,8 +2,8 @@ const angular = require('angular');
 require('angular-mocks');
 require('../../server/public/scripts/app/main');
 
-describe('Listing visits', function() {
-    var scope, visitListController;
+describe('Listing Cities', function() {
+    var scope, cityListController;
     var cities = [{}, {}, {}];
     var visitedIndex;
     var notVisitedIndex;
@@ -13,10 +13,10 @@ describe('Listing visits', function() {
     beforeEach(inject(function ($rootScope, $controller, _$location_) {
         scope = $rootScope.$new();
 
-        visitListController = $controller('VisitListController',
+        cityListController = $controller('CityListController',
             {
                 '$scope': scope,
-                'visitApi': {
+                'cityApi': {
                   getAll: function() {
                     return {
                       then: function(cb) {
@@ -34,8 +34,8 @@ describe('Listing visits', function() {
             });
     }));
 
-    it('should have a list of visits', function() {
-        expect(scope.visits.length).toBe(3);
+    it('should have a list of Cities', function() {
+        expect(scope.cities.length).toBe(3);
     });
 
     it('should be able to toggle a city to visited state', function() {

@@ -11,17 +11,17 @@ const setVisitedAs = (state, id) => {
   data[id].visited = state;
 };
 
-app.put('/visits/:id/visited', (req, res) => {
+app.put('/cities/:id/visited', (req, res) => {
   setVisitedAs(true, req.params.id);
   res.status(200).send();
 });
 
-app.delete('/visits/:id/visited', (req, res) => {
+app.delete('/cities/:id/visited', (req, res) => {
   setVisitedAs(false, req.params.id);
   res.status(200).send();
 });
 
-app.get('/visits', (req, res) => {
+app.get('/cities', (req, res) => {
   res.status(200).json(data);
 });
 

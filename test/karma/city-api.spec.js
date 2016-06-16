@@ -2,24 +2,24 @@ const angular = require('angular');
 require('angular-mocks');
 require('../../server/public/scripts/app/main');
 
-describe('The visits api', function() {
-    var visitApi, $httpBackend;
+describe('The cities api', function() {
+    var cityApi, $httpBackend;
 
     beforeEach(angular.mock.module('visitPlannr'));
 
-    beforeEach(inject(function (_visitApi_, _$httpBackend_) {
-        visitApi = _visitApi_;
+    beforeEach(inject(function (_cityApi_, _$httpBackend_) {
+        cityApi = _cityApi_;
         $httpBackend = _$httpBackend_;
     }));
 
-    it('should get the list of visits when called', function(done) {
-      $httpBackend.when('GET', '/visits')
+    it('should get the list of cities when called', function(done) {
+      $httpBackend.when('GET', '/cities')
                           .respond(200, [{}, {}, {}]);
 
-      visitApi.getAll()
+      cityApi.getAll()
         .then(
-          function(visits) {
-            expect(visits.data.length).toBe(3);
+          function(cities) {
+            expect(cities.data.length).toBe(3);
             done();
           },
           function(err) {console.error(err); done();}
@@ -31,10 +31,10 @@ describe('The visits api', function() {
     });
 
     it('should call over http when setting visited state', function() {
-      $httpBackend.expect('PUT', '/visits/3/visited')
+      $httpBackend.expect('PUT', '/cities/3/visited')
                           .respond(200, [{}, {}, {}]);
 
-      visitApi.hasVisited(3);
+      cityApi.hasVisited(3);
 
       $httpBackend.flush();
       $httpBackend.verifyNoOutstandingExpectation();
@@ -42,10 +42,10 @@ describe('The visits api', function() {
     });
 
     it('should call over http when setting not visited state', function() {
-      $httpBackend.expect('DELETE', '/visits/0/visited')
+      $httpBackend.expect('DELETE', '/cities/0/visited')
                           .respond(200, [{}, {}, {}]);
 
-      visitApi.hasNotVisited(0);
+      cityApi.hasNotVisited(0);
 
       $httpBackend.flush();
       $httpBackend.verifyNoOutstandingExpectation();

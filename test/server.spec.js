@@ -11,11 +11,11 @@ describe('the server', () => {
       .expect(404, done);
   });
 
-  it('should return expected JSON on start', done => {
+  it('should return expected cities', done => {
     const expectedCities = ['Manchester', 'Liverpool', 'York', 'Las Vegas', 'Beijing'];
 
     request(app)
-      .get('/visits')
+      .get('/cities')
       .expect('Content-Type', /json/)
       .expect(200)
       .end((err, res) => {
@@ -33,52 +33,52 @@ describe('the server', () => {
       .expect(200, done);
   });
 
-  it('should allow setting a visit as visited', done => {
+  it('should allow setting a city as visited', done => {
     const index = 2;
 
     const checkThatChangeWasPersisted = () => {
       request(app)
-        .get('/visits')
+        .get('/cities')
         .expect('Content-Type', /json/)
         .expect(200)
         .end((err, res) => {
           const result = res.body;
-          var visit = result[index];
-          expect(visit.visited).toBe(true);
+          var city = result[index];
+          expect(city.visited).toBe(true);
           done();
         });
     };
 
     request(app)
-      .put(`/visits/${index}/visited`)
+      .put(`/cities/${index}/visited`)
       .expect(200, checkThatChangeWasPersisted);
   });
 
-  it('should allow setting a visit as not visited', done => {
+  it('should allow setting a city as not visited', done => {
     var index = 3;
 
     const checkThatVisitIsNotVisited = () => {
       request(app)
-        .get('/visits')
+        .get('/cities')
         .expect('Content-Type', /json/)
         .expect(200)
         .end((err, res) => {
           const result = res.body;
-          var visit = result[index];
-          expect(visit.visited).toBe(false);
+          var city = result[index];
+          expect(city.visited).toBe(false);
           done();
         });
     };
 
     const deleteVisitedState = () => {
       request(app)
-        .delete(`/visits/${index}/visited`)
+        .delete(`/cities/${index}/visited`)
         .expect('Content-Type', /json/)
         .expect(200, checkThatVisitIsNotVisited);
     };
 
     request(app)
-      .put(`/visits/${index}/visited`)
+      .put(`/cities/${index}/visited`)
       .expect(200, deleteVisitedState);
   });
 });

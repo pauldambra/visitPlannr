@@ -7,8 +7,8 @@ window.$ = window.jQuery = require('jquery');
 
 var visitPlannr = angular.module('visitPlannr', []);
 
-visitPlannr.factory('visitApi',
-  ['$http', require('./visitApi')]);
+visitPlannr.factory('cityApi',
+  ['$http', require('./cityApi')]);
 
-visitPlannr.controller('VisitListController',
-  ['$scope', 'visitApi', require('./visitListController')]);
+visitPlannr.controller('CityListController',
+  ['$scope', 'cityApi', require('./cityListController')]);
