@@ -1,4 +1,8 @@
+# Visit Planner for LateRooms interview
 
+NB Only tested with NodeJS 4.4.5
+
+# Task
 
 The description [from github](https://github.com/LateRoomsGroup/interview-katas/blob/2bc43b2e724c38ac4f54c337a53779ccdb28ea3c/full-stack.md) is included below
 
