@@ -25,4 +25,11 @@ describe('the server', () => {
         done();
       });
   });
+
+  it('should return html at the root url', done => {
+    request(app)
+      .get('/')
+      .expect('Content-Type', /html/)
+      .expect(200, done);
+  });
 });
