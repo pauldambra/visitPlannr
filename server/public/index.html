@@ -7,7 +7,7 @@
     <title>VisitPlannr.io</title>
     <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   </head>
-  <body>
+  <body ng-app="visitPlannr">
     <nav class="navbar navbar-default navbar-static-top">
       <div class="container">
         <div class="row">
@@ -20,10 +20,10 @@
       </div>
     </nav>
 
-    <section ng-app="visitPlannr" class="container">
-      <div class="row">
-        <div class="col-sm-8 col-sm-offset-2" ng-controller="VisitListController">
-          <pre>{{$scope.visits}}</pre>
+    <section class="container" ng-controller="VisitListController">
+      <div class="row" ng-repeat="visit in visits">
+        <div class="col-sm-8 col-sm-offset-2" >
+          <pre>{{visit.Country}}</pre>
         </div>
       </div>
     </section>
