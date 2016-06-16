@@ -51,7 +51,7 @@ You should then create a basic web application and add as many of the following 
 - [ ] Ability to add a new city to the list
   - [ ] * Provide basic validation
 - [x] Allow a user to mark a city as visited/unvisited
-- [ ] Show a visual counter of the number of cities visited/unvisited
+- [x] Show a visual counter of the number of cities visited/unvisited
 - [ ] Filter the cities by visited state (i.e. visited or unvisited)
 - [ ] Sort the cities by visited state (i.e. visited or unvisited)
 - [x] Search for city by attraction or country

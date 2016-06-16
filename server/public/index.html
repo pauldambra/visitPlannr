@@ -23,6 +23,9 @@
 
     <section class="container" ng-controller="CityListController">
       <div class="row">
+        <div class="col-sm-12 text-center">
+          <h1 ng-cloak>You have visited {{visitedCitiesCount()}} of {{cities.length}} cities</h1>
+        </div>
         <div class="col-sm-12 search">
           <div class="input-group">
             <input class="form-control" ng-model="search" placeholder="search" type=search>

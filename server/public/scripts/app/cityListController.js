@@ -9,6 +9,12 @@ module.exports = function($scope, cityApi) {
     });
   });
 
+  $scope.visitedCitiesCount = function() {
+    return ($scope.cities || []).reduce(function(acc, c) {
+      return acc + (c.visited ? 1 :0);
+    }, 0);
+  };
+
   $scope.toggleVisited = function(city) {
     var currentState = city.visited || false;
     city.visited = !city.visited;

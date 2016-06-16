@@ -8,6 +8,10 @@ describe('Listing Cities', function() {
     var visitedIndex;
     var notVisitedIndex;
 
+    afterEach(function() {
+      cities = [{}, {}, {}];
+    });
+
     beforeEach(angular.mock.module('visitPlannr'));
 
     beforeEach(inject(function ($rootScope, $controller, _$location_) {
@@ -36,6 +40,12 @@ describe('Listing Cities', function() {
 
     it('should have a list of Cities', function() {
         expect(scope.cities.length).toBe(3);
+    });
+
+    it('should count visited cities', function() {
+      expect(scope.visitedCitiesCount()).toBe(0);
+      cities[1].visited = true;
+      expect(scope.visitedCitiesCount()).toBe(1);
     });
 
     it('should be able to toggle a city to visited state', function() {
