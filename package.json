@@ -1,6 +1,6 @@
 {
   "name": "visit-planner",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "a kata for laterooms",
   "main": "index.js",
   "directories": {

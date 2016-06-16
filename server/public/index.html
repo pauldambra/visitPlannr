@@ -24,7 +24,7 @@
     <section class="container" ng-controller="VisitListController">
       <div class="row" ng-repeat="visit in visits">
         <div class="col-sm-8 col-sm-offset-2">
-          <div class="card container">
+          <div class="card container" ng-cloak>
             <div class="row">
               <div class="col-xs-12 location">
                 <h1 class="pull-left">{{visit.City}}</h1>
