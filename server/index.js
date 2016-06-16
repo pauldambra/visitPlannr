@@ -1,4 +1,5 @@
 'use strict';
+
 const express = require('express');
 const app = express();
 
@@ -12,6 +13,11 @@ app.get('/visits', (req, res) => {
 
 app.use((req, res, next) => {
   res.status(404).send('Sorry cant find that!');
+});
+
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send();
 });
 
 module.exports = app;
