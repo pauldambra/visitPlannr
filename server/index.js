@@ -7,6 +7,20 @@ const data = require('./data.json');
 
 app.use('/', express.static(`${__dirname}/public`));
 
+const setVisitedAs = (state, id) => {
+  data[id].visited = state;
+};
+
+app.put('/visits/:id/visited', (req, res) => {
+  setVisitedAs(true, req.params.id);
+  res.status(200).send();
+});
+
+app.delete('/visits/:id/visited', (req, res) => {
+  setVisitedAs(false, req.params.id);
+  res.status(200).send();
+});
+
 app.get('/visits', (req, res) => {
   res.status(200).json(data);
 });

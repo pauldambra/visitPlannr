@@ -4,7 +4,9 @@ require('../../server/public/scripts/app/main');
 
 describe('Listing visits', function() {
     var scope, visitListController;
-    var cities = [{}, {}];
+    var cities = [{}, {}, {}];
+    var visitedIndex;
+    var notVisitedIndex;
 
     beforeEach(angular.mock.module('visitPlannr'));
 
@@ -21,13 +23,19 @@ describe('Listing visits', function() {
                         cb({data: cities});
                       }
                     };
+                  },
+                  hasVisited: function(index) {
+                    visitedIndex = index;
+                  },
+                  hasNotVisited: function(index) {
+                    notVisitedIndex = index;
                   }
                 }
             });
     }));
 
     it('should have a list of visits', function() {
-        expect(scope.visits.length).toBe(2);
+        expect(scope.visits.length).toBe(3);
     });
 
     it('should be able to toggle a city to visited state', function() {
@@ -41,5 +49,16 @@ describe('Listing visits', function() {
       expect(cities[0].visited).toBe(true);
       scope.toggleVisited(cities[0]);
       expect(cities[0].visited).toBe(false);
+    });
+
+    it('should call the visit api when setting visited', function() {
+        scope.toggleVisited(cities[2]);
+        expect(visitedIndex).toBe(2);
+    });
+
+    it('should call the visit api when setting not visited', function() {
+      scope.toggleVisited(cities[1]);
+      scope.toggleVisited(cities[1]);
+      expect(notVisitedIndex).toBe(1);
     });
 });

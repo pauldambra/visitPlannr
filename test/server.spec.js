@@ -32,4 +32,53 @@ describe('the server', () => {
       .expect('Content-Type', /html/)
       .expect(200, done);
   });
+
+  it('should allow setting a visit as visited', done => {
+    const index = 2;
+
+    const checkThatChangeWasPersisted = () => {
+      request(app)
+        .get('/visits')
+        .expect('Content-Type', /json/)
+        .expect(200)
+        .end((err, res) => {
+          const result = res.body;
+          var visit = result[index];
+          expect(visit.visited).toBe(true);
+          done();
+        });
+    };
+
+    request(app)
+      .put(`/visits/${index}/visited`)
+      .expect(200, checkThatChangeWasPersisted);
+  });
+
+  it('should allow setting a visit as not visited', done => {
+    var index = 3;
+
+    const checkThatVisitIsNotVisited = () => {
+      request(app)
+        .get('/visits')
+        .expect('Content-Type', /json/)
+        .expect(200)
+        .end((err, res) => {
+          const result = res.body;
+          var visit = result[index];
+          expect(visit.visited).toBe(false);
+          done();
+        });
+    };
+
+    const deleteVisitedState = () => {
+      request(app)
+        .delete(`/visits/${index}/visited`)
+        .expect('Content-Type', /json/)
+        .expect(200, checkThatVisitIsNotVisited);
+    };
+
+    request(app)
+      .put(`/visits/${index}/visited`)
+      .expect(200, deleteVisitedState);
+  });
 });
