@@ -23,6 +23,22 @@ module.exports = function($scope, cityApi) {
     apiMethod(city.id);
   };
 
+  $scope.showVisited = true;
+  $scope.toggleShowVisited = function() {
+    $scope.showVisited = !$scope.showVisited;
+  };
+
+  $scope.showNotVisited = true;
+  $scope.toggleShowNotVisited = function() {
+    $scope.showNotVisited = !$scope.showNotVisited;
+  };
+
+  $scope.filterVisited = function(city) {
+    if (!$scope.showVisited && city.visited) return false;
+    if (!$scope.showNotVisited && !city.visited) return false;
+    return true;
+  };
+
   $scope.filterCities = function(city) {
     if (!$scope.search) return true;
 

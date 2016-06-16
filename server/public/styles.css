@@ -7,6 +7,20 @@
   color: white;
 }
 
+.filters {
+  margin-top: 1em;
+}
+
+.filters .btn-primary {
+  background-color: white;
+  color:black;
+}
+
+.filters .btn-primary.active {
+  background-color: #411085;
+  color:white;
+}
+
 .card {
   margin: 1%;
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
