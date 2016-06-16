@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>VisitPlannr.io</title>
     <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
   </head>
   <body ng-app="visitPlannr">
     <nav class="navbar navbar-default navbar-static-top">
@@ -22,8 +23,22 @@
 
     <section class="container" ng-controller="VisitListController">
       <div class="row" ng-repeat="visit in visits">
-        <div class="col-sm-8 col-sm-offset-2" >
-          <pre>{{visit.Country}}</pre>
+        <div class="col-sm-8 col-sm-offset-2">
+          <div class="card container">
+            <div class="row">
+              <div class="col-xs-12 location">
+                <h1 class="pull-left">{{visit.City}}</h1>
+                <div class="pull-right">{{visit.Country}}</div>
+              </div>
+              <div class="col-xs-12 attractions">
+                <ul>
+                  <li ng-repeat="attraction in visit.Attractions">
+                    {{attraction}}
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
