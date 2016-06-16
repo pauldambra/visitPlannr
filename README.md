@@ -1,6 +1,6 @@
 # Visit Planner for LateRooms interview
 
-NB Only tested with NodeJS 4.4.5
+NB Only tested with NodeJS 4.4.5 on Mac OS
 
 # Task
 
