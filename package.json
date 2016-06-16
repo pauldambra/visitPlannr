@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "./node_modules/.bin/mocha & ./node_modules/.bin/karma start --single-run",
-    "start": "PORT=3001 node ./start.js"
+    "start": "browserify ./server/public/scripts/app/main.js -o ./server/public/scripts/bundle.js | PORT=3001 node ./start.js"
   },
   "author": "Paul D'Ambra",
   "license": "ISC",

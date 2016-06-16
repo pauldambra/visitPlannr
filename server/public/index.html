@@ -20,8 +20,15 @@
       </div>
     </nav>
 
-    <h1>Hello, world!</h1>
+    <section ng-app="visitPlannr" class="container">
+      <div class="row">
+        <div class="col-sm-8 col-sm-offset-2" ng-controller="VisitListController">
+          <pre>{{$scope.visits}}</pre>
+        </div>
+      </div>
+    </section>
 
+    <script src="/scripts/bundle.js"></script>
     <script src="/bootstrap/js/bootstrap.min.js"></script>
   </body>
 </html>
