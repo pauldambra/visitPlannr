@@ -1,11 +1,11 @@
 'use strict';
 
-const angular = require('angular');
+var angular = require('angular');
 
 /*jslint browser: true */
 window.$ = window.jQuery = require('jquery');
 
-const visitPlannr = angular.module('visitPlannr', []);
+var visitPlannr = angular.module('visitPlannr', []);
 
 visitPlannr.factory('visitApi',
   ['$http', require('./visitApi')]);
