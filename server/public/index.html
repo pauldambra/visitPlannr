@@ -46,6 +46,22 @@
                 </li>
               </ul>
             </div>
+            <div class="col-xs-12 actions">
+              <div ng-click="toggleVisited(visit)"
+                class="pull-right text-center btn btn-default">
+                <div>
+                  <span class="badge"
+                        ng-class="{visited: visit.visited}">
+                    <span class="glyphicon glyphicon-star"
+                          ng-class="visit.visited ? glyphicon-star : glyphicon-star-empty">
+                    </span>
+                  </span>
+                </div>
+                <div>
+                  Visited{{ visit.visited ? '!' : '?' }}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

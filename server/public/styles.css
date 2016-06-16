@@ -18,6 +18,23 @@
   padding:1em;
 }
 
+.card .attractions {
+  padding-top: 1em;
+}
+
+.card .actions {
+  border-top: #FFF8E6 1px solid;
+  padding: 3px;
+}
+
+.card .actions .btn {
+  font-size: 0.8em;
+  padding: 2px;
+  width: 46px;
+}
+
+.badge.visited { background-color: #39a8da; }
+
 .card h1 {
   margin:0;
   font-size: 20px;
